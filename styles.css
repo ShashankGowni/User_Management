@@ -1,0 +1,536 @@
+/* Style the overall page */
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #f4f4f9;
+}
+#clear{
+    margin-left:435px;
+    background-color: orange;
+    padding: 10px 20px; /* Button padding */
+    font-size: 14px;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+}
+
+ div.top-btn{
+    display: flex;
+    margin-top: 50px;
+    justify-content: space-between;  
+}
+  #addRowBtn{
+    margin: 40px 20px 0 10px;
+    padding: 10px 20px; /* Button padding */
+    background-color: orange;
+    font-size: 14px;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+  }
+  #exportBtn {
+    margin: 40px 10px 0 900px;
+    background-color: orange;
+    padding: 10px 20px; /* Button padding */
+    font-size: 14px;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+  }
+  #fileFormatSelect{
+    width:55px;
+    height:20px;
+    margin-top: 50px;
+    margin-right:30px
+  }
+  #loader{
+    color:red;
+  }
+  /* Tooltip container */
+   .tooltip-btn {
+    position: relative; /* Needed for positioning the tooltip */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+/* Tooltip text styling */
+.tooltip-btn::after {
+    content: attr(data-tooltip); /* Use the text from the data-tooltip attribute */
+    position: absolute;
+    bottom: 100%; /* Position above the button */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center horizontally */
+    padding: 5px 10px;
+    font-size: 20px;
+    border-radius: 5px;
+    opacity: 0; /* Initially hidden */
+    visibility: hidden; /* Initially hidden */
+    transition: opacity 0.3s, visibility 0.3s; /* Smooth transition */
+    white-space: nowrap; /* Prevent text wrapping */
+}
+/* Show tooltip when button is hovered */
+.tooltip-btn:hover::after {
+    opacity: 1; /* Make the tooltip visible */
+    visibility: visible; /* Make the tooltip visible */
+    bottom: 120%; /* Adjust position when tooltip is visible */
+}
+   /* Style for the search bar container */
+ .search-container {
+    position: relative;
+    width: 400px;
+    left: 100px;
+    display: flex;
+    justify-content: center; 
+  }
+
+  #searchContainer {
+    display: flex;
+    right: 240px;
+    justify-content: flex-start;
+    margin-bottom: 15px;
+    margin-top: 10px;
+    position: relative;
+}
+  /* Style for the input field (search bar) */
+  .search-bar {
+    width: 100%;
+    padding: 10px 30px 10px 40px; /* Space for the icon inside the input field */
+    font-size: 16px;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  /* Style for the search icon inside the input field */
+  .search-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #888;
+  }
+  .email{
+    padding:0;
+  }
+  .title-container {
+    position: absolute;
+    left: 28%;
+    transform: translateX(-50%); /* Center the title horizontally */
+    text-align: center;
+    z-index: 1001;
+  }
+  .title-container h1 {
+    color: white;
+    margin: 0; /* Remove the default margin */
+    font-size: 25px; /* Adjust the font size */
+    font-weight: normal;
+  }
+  .title-container h1:hover {
+    font-size: 35px; /* Enlarge the font size */
+    transition: font-size 0.3s ease; /* Smooth transition for font size change */
+  }
+  header.header-container {
+    display: flex; /* This makes the logo and title appear on the same line */
+    justify-content: space-between; /* Ensures logo and title are spaced */
+    align-items: center; /* Vertically center the logo and title */
+    background-color: black;
+    padding: 10px 30px; /* Add some padding to the header */
+    position: fixed; /* Fix the header at the top */
+    top: 0; /* Align it at the top */
+    left: 0; /* Align it to the left */
+    width: 95%; /* Make it span the full width */
+    z-index: 1000; /* Ensure it appears above other content */
+    border: 1px solid #ccc; /* Light border for text box effect */
+    border-radius: 9px; /* Rounded corners for the text box look */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+  }
+  /* Logo container */
+  .logo-container {
+    background-color: black;
+    display: flex;
+    align-items: center;
+    padding-left: 10px; /* Reduced space from left edge */
+    top: 20px; /* Space from the top */
+    left: 0;
+    z-index: 1000; /* Ensure it appears above other content */
+    transition: transform 0.3s ease;
+    border: 1px solid black; /* Light border for text box effect */
+    border-radius: 9px; /* Rounded corners for the text box look */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+}
+
+img.logo {
+    width: 50px; /* Adjust the logo size to fit your design */
+    height: 50px; /* Make the height equal to width for a perfect circle */
+    border-radius: 50%; /* Makes the image circular */
+    object-fit: cover; /* Ensures the image stays proportionate */
+    transition: transform 0.3s ease;
+    border: 1px solid black; /* Border around the logo */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+}
+  .profilelogo{
+    width:50px;
+    height:50px; 
+    border-radius: 45%; /* Makes the image circular */
+    object-fit: cover; /* Makes the image circular */
+    
+  }
+  /* Hover effect for logo */
+  .logo-container:hover img.logo {
+    transform: scale(1.2);
+  }
+/* Button styles */
+.btn {
+    padding: 10px 15px;
+    background-color: orange;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.username-style {
+    color:black; /* Set the text color to blue (like a link) */
+    text-decoration: none; /* Remove underline */
+    font-family: Arial, sans-serif;
+}
+
+.suggestions {
+    position: absolute; /* This ensures the suggestions are placed relative to the search field */
+    top: 100%; /* Position below the input field */
+    display:none;
+    list-style-type: none;
+    padding: 0;
+    width: 100%; /* Ensure the suggestion box matches the input field width */
+    background-color: white;
+    border: 1px solid #ddd;
+    border-top: none;
+    max-height: 200px;
+    overflow-y: auto; /* Scrollable if the list is long */
+    z-index: 9999;
+}
+.suggestions li {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.suggestions li:hover {
+    background-color: #f1f1f1;
+}
+/* Style the search container to display side by side */
+
+.search-field-container {
+    position: relative; /* This allows the suggestion box to be positioned relative to this container */
+    margin-bottom: 10px; /* Add space between the fields */
+    left: 30%;
+}
+#searchContainer input {
+    margin-right: 10px;
+    padding: 8px;
+    width: 300px;
+    box-sizing: border-box;
+}
+ 
+/* Style the table */
+.table-container {
+    margin-top: 20px;
+    border: 1px solid black; /* Light border for text box effect */
+    border-radius: 9px; /* Rounded corners for the text box look */
+}
+ 
+/* Style the table for better readability */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    table-layout: fixed;
+ }
+#userTable.display{
+    width: 1200px;
+}
+.addressRow {
+    padding: 15px;
+    background-color: #f9f9f9;
+}
+.addressRow {
+    width: 1160px;
+}
+.addressRow td {
+    padding: 8px;
+}
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
+}
+#userTable th {
+    position: sticky;
+    top: 74px; /* Keep the header at the top of the viewport */
+    background-color: grey; /* Maintain the background color */
+    color: white; /* Keep text white */
+    z-index: 1; /* Ensure the header stays above other content */
+  }
+ 
+table th {
+    background-color: #f2f2f2;
+    
+}
+
+ 
+/* Modal Style */
+#addRowModal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ddd;
+    width: 300px;
+    z-index: 9999;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+ 
+#modalBackdrop {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9998;
+}
+ 
+/* Modal input fields styling */
+#addRowModal input {
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+ 
+/* Button in the modal */
+#addRowModal button {
+    background-color: orange;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+ 
+#addRowModal button:hover {
+    background-color: orange;
+}
+ 
+/* Style for user details section */
+#userDetailsModal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ddd;
+    width: 300px;
+    z-index: 900;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+ 
+#userDetailsModal img {
+    display: block;
+    margin: 10px auto;
+}
+ 
+#userDetailsModal input {
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+ 
+#userDetailsModal button {
+    background-color: orange;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+#userDetailsModal button:hover {
+    background-color: orange;
+}
+/* Style for suggestion list container */
+#nameSuggestions, #emailSuggestions ,#usernameSuggestions{
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    box-sizing: border-box;
+    margin-top: 2px;
+    z-index: 999;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+}
+/* Styling for the pop-up */
+#popup {
+    position: fixed;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    z-index: 9999;
+    display: none;  /* Hidden initially */
+}
+
+#popup-content {
+    text-align: center;
+}
+
+#popup-message {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+#close-popup {
+    background-color: #f44336;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#close-popup:hover {
+    background-color: #d32f2f;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+button {
+    margin-top: 10px;
+}
+
+/* Style for each suggestion item */
+.suggestion-item {
+    padding: 10px 15px;
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+/* Hover effect for suggestion items */
+.suggestion-item:hover {
+    background-color: #f1f1f1;
+    color: #007bff;
+}
+/* Style for the search input box */
+#nameSearch, #emailSearch ,#usernameSearch{
+    position: relative;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.clear-search {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #888;
+    font-size: 14px;
+} 
+.clear-search:hover {
+    color: #333;
+} 
+/* Edit and Delete Button Styles */
+button.editBtn, button.deleteBtn {
+    padding: 8px 14px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+/* Edit Button */
+button.editBtn {
+    background-color:turquoise; 
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 128, 0, 0.2);
+} 
+button.editBtn:hover {
+    background-color: rgb(29, 143, 237);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(247, 23, 23, 0.3);
+}
+/* Delete Button */
+button.deleteBtn {
+    background-color: coral; /* Red */
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(220, 53, 69, 0.2);
+}
+button.deleteBtn:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(220, 53, 69, 0.3);
+}
+/* Edit Button Icon */
+button.editBtn:before {
+    content: "\f044"; /* Pencil icon (Font Awesome) */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    margin-right: 5px;
+}
+/* Delete Button Icon */
+button.deleteBtn:before {
+    content: "\f1f8"; /* Trash can icon (Font Awesome) */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    margin-right: 5px;
+}
+/* Focus effect for buttons */
+button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5);
+}
