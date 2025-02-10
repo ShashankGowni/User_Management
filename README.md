@@ -103,6 +103,27 @@ Since this is a **frontend-based project**, no additional dependencies are requi
 - 📌 **xlsx.full.min.js** – Excel file export.
 
 
+# Project Output
+
+Here are the output images of the project:
+
+### Output of the Add New User:
+
+![Add New User](./images/add_new_user.jpg)
+
+### Output Image of the Search Page:
+
+![Search Page](./images/search_page.jpg)
+
+### Output Image of the User Details:
+
+![User Details](./images/user_detailes.jpg)
+
+### Output Image of the Suggestions:
+
+![Suggestions](./images/suggestion_page.jpg)
+
+
 ## **Contact**
 
 📩 **Email:** [shashankgowni09@gmail.com](mailto:shashankgowni09@gmail.com)
