@@ -117,7 +117,7 @@ Here are the output images of the project:
 
 ### Output Image of the User Details:
 
-![User Details](./images/user_details.jpg)
+![User Details](./images/user_detailes.jpg)
 
 ### Output Image of the Suggestions:
 
