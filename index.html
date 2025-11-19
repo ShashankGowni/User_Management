@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- External CSS links -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <!-- External JS libraries -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.0/jspdf.plugin.autotable.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.0/jspdf.plugin.autotable.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.26/jspdf.plugin.autotable.min.js"></script>
+
+</head>
+ 
+<body>
+    
+    <header class="header-container">
+        <div class="logo-container">
+            <a href="#" target="_blank"><img src="logo.png" alt="logo" class="logo"></a>
+        </div>
+        <div class="title-container">
+            <h1>User Management</h1>
+        </div>
+        <div class="search-container">
+            <i class="search-icon fas fa-search"></i>
+            <input type="text" id="globalSearch" class="search-bar" placeholder="Search...">
+            <ul id="globalSuggestions" class="suggestions"style="display:none; list-style-type: none; padding: 0;"></ul> 
+        </div>
+        <div class="profile">
+            <img src="profilelogo.png" alt="" class="profilelogo">
+
+        </div>
+    </header>
+    
+
+    <!-- Add New Row Button -->
+    <div class="top-btn">
+        <button id="addRowBtn" class="tooltip-btn" title="Add New User">Add User</button>
+        <button id="exportBtn" class="tooltip-btn" title="Download  Report">Export </button>
+        <select id="fileFormatSelect">
+            <option value="excel">Excel</option>
+            <option value="csv">CSV</option>
+            <option value="pdf">PDF</option>
+            <option value="txt">TXT</option>
+        </select>
+    </div>
+
+    <!-- Search Bar -->
+<div id="searchContainer">
+    <div class="search-field-container">
+        <input type="text" id="nameSearch" placeholder="Search by Name" />
+        <ul id="nameSuggestions" class="suggestions" ></ul>
+    </div>
+    <div class="search-field-container">
+        <input type="email" id="emailSearch" placeholder="Search by Email" />
+        <ul id="emailSuggestions" class="suggestions" ></ul>
+    </div>
+    <div class="search-field-container">
+        <input type="text" id="usernameSearch" placeholder="Search by Username">
+        <ul id="usernameSuggestions" class="suggestions" ></ul>
+    </div>
+    <button id="clear">Clear</button>
+</div>
+ 
+ 
+    <!-- Add Row Modal -->
+    <div id="modalBackdrop"></div> <!-- Backdrop for modal -->
+    <div id="addRowModal">
+        <h3>Add New User</h3>
+        <input type="text" id="newName" placeholder="Name" required><br>
+        <input type="text" id="newUsername" placeholder="Username" required><br>
+        <input type="email" id="newEmail" placeholder="Email" required><br>
+        <input type="text" id="newStreet" placeholder="Street" required><br>
+        <input type="text" id="newCity" placeholder="City" required><br>
+        <input type="text" id="newState" placeholder="State" required><br>
+        <input type="text" id="newZipcode" placeholder="Zipcode" required><br>
+        <button id="submitAddRow" class="btn">Submit</button>
+        <button id="cancelAddRow" class="btn">Cancel</button>
+    </div>
+
+    <div id="popup" style="display: none;">
+        <p id="popup-message"></p>
+        <button id="close-popup">Close</button>
+    </div>
+
+    <!-- Modal HTML -->
+<div id="confirmModal" class="modal">
+    <div class="modal-content">
+        <p id="confirmMessage"></p>
+        <button id="confirmYes">Yes</button>
+        <button id="confirmNo">No</button>
+    </div>
+</div>
+ 
+    <!-- User Details Modal (Popup) -->
+    <div id="userDetailsModal">
+        <h3>User Details</h3>
+ 
+        <!-- Profile Picture Section -->
+        <img id="profilePicture" src="https://randomuser.me/api/portraits/men/1.jpg" alt="Profile Picture" style="width: 100px; height: 100px; border-radius: 50%;">
+ 
+        <!-- User Info Section -->
+        <p><strong>Name:</strong> <span id="modalUserName"></span></p>
+        <p><strong>Username:</strong> <span id="modalUserUsername"></span></p>
+        <p><strong>Email:</strong> <span id="modalUserEmail"></span></p>
+        <p><strong>Address:</strong> <span id="modalUserAddress"></span></p>
+ 
+        <!-- File Input for Custom Profile Picture -->
+        <input type="file" id="chooseFile" accept="image/*" style="display:none;">
+        <button id="uploadCustomProfilePic" class="btn">Upload Custom Profile Picture</button>
+        <button id="saveProfilePic" class="btn">Save Picture</button>
+        <button id="closeUserDetailsModal" class="btn">Close</button>
+    </div>
+ 
+    <!-- Table Container -->
+    <div class="table-container">
+        <table id="userTable" class="display" style="width:1200px;">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Data will be dynamically populated here -->
+            </tbody>
+        </table>
+    </div>
+   
+    <!-- Link to the external JS -->
+    <script src="script1.js"></script>
+</body>
+ 
+</html>
