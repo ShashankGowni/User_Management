@@ -127,6 +127,6 @@ Here are the output images of the project:
 
 ## **Contact**
 
-📩 **Email:** [shashankgowni09@gmail.com](mailto:shashankgowni09@gmail.com)
-🔗 **GitHub:** [ShashankGowni](https://github.com/ShashankGowni)
-💼 **LinkedIn:** [Shashank Gowni](https://www.linkedin.com/in/shashankgowni)
+- 📩 **Email:** [shashankgowni09@gmail.com](mailto:shashankgowni09@gmail.com)
+- 🔗 **GitHub:** [ShashankGowni](https://github.com/ShashankGowni)
+- 💼 **LinkedIn:** [Shashank Gowni](https://www.linkedin.com/in/shashankgowni)
